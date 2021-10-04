@@ -18,19 +18,19 @@ public class Exercicio2 {
 		System.out.println("Digite o valor de C: ");
 		c = leia.nextInt();
 		
-		if(a > b) // A>B>C
+		if(a >= b) // A>B>C
 		{
 			o = a; 
 			a = b; 
 			b = o; 
 		}
-		if(b > c) //B>C>A
+		if(b >= c) //B>C>A
 		{
 			o = b; 
 			b = c; 
 			c = o; 
 		}
-		if (a > b) 
+		if (a >= b) 
 		{
 			o = a;
 			a = b;
