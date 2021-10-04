@@ -22,7 +22,7 @@ public class Exercicio4 {
 			
 			System.out.printf("\nA raíz quadradada de " +n + " é: %2.2f" ,p);
 		}
-		if(n % 2 == 1) 
+		else 
 		{
 			System.out.println("\nO número digitado é impar, portanto...");
 			
