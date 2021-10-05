@@ -10,7 +10,7 @@ public class Exercicio04 {
 		int cont=0, idade, sexo, temperamento;
 		int tcalmos=0, mnervosas=0, hagressivos=0, ocalmos=0, nacima40=0, cmenor18=0;
 		
-			while(cont <= 10) {
+			while(cont <= 2) {
 			System.out.println("\nInforme a idade: ");
 			idade = leia.nextInt();
 			
@@ -18,29 +18,27 @@ public class Exercicio04 {
 			System.out.println("\t1 Feminino"+"\t2 Masculino" + "\t3 Outros");
 			sexo = leia.nextInt();
 			
-			if(sexo != 1 || sexo != 2 || sexo != 3) {
-				sexo = 3;
-			}
-			
 			System.out.println("Qual o temperamento da pessoa? ");
 			System.out.println("\t1 Calme"+"\t2 Nervose" + "\t3 Agressive");
 			temperamento = leia.nextInt();
 			
 			if(temperamento == 1) {
-				tcalmos++;
+				tcalmos++; //pessoas calmas
 			}
 			if(sexo == 1 && temperamento == 2) {
-				mnervosas++;
+				mnervosas++; //mulheres nervosas
 			}
-			else if (sexo == 2 && temperamento == 3) {
-				ocalmos++;
+			if(sexo == 2 && temperamento == 3) {
+				hagressivos++; //homem agressivo
 			}
-			
+			if (sexo == 3 && temperamento == 3) {
+				ocalmos++; //outros calmos
+			}
 			if (temperamento == 2 && idade >= 40) {
-				nacima40++;
+				nacima40++; //nervosos acima de 40
 			}
-			else if(temperamento == 1 && idade <= 18) {
-				cmenor18++;
+			if(temperamento == 1 && idade <= 18) {
+				cmenor18++; //calmos abaixo de 18
 			}
 			cont++;
 		}
