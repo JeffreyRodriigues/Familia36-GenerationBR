@@ -33,8 +33,15 @@ package POO;
 		}
 		
 		public void testeFebre() { 
-			if(temperatura>36) {
+			if(temperatura>40) {
+				System.out.println("O paciente está HIPERTERMIA, e precisa de medicação URGENTE!");
+			}
+			else if(temperatura>37.5 && temperatura<=40) {
 				System.out.println("O paciente está com febre, e precisa de medicação!");
+			}
+			else if(temperatura<=35.9)
+			{
+				System.out.println("O paciente está com HIPOTERMIA, e precisa de cuidados urgente!");
 			}
 			else {
 				System.out.println("O paciente está liberado!");
