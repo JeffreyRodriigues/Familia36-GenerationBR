@@ -12,8 +12,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "tb_postagens")
+@Entity //Gerando a tabela
+@Table(name = "tb_postagens") // Definindo o nome da Tabela
 public class Postagem {
 	
 	@Id //Chave primária
@@ -28,7 +28,7 @@ public class Postagem {
 	@Size(min = 10, max = 1000, message = "O texto deve conter no mínimo 10 e no máximo 1000 caracteres")//Tamanho mínimo e máximo para o título
 	private String texto;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIMESTAMP) //Definindo o atributo data
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 	
 	public long getId() {
