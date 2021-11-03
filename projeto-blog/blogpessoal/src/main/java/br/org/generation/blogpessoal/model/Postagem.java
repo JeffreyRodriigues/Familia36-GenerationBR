@@ -6,11 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity //Gerando a tabela
 @Table(name = "tb_postagens") // Definindo o nome da Tabela
@@ -30,6 +33,10 @@ public class Postagem {
 	
 	@Temporal(TemporalType.TIMESTAMP) //Definindo o atributo data
 	private Date data = new java.sql.Date(System.currentTimeMillis());
+	
+	@ManyToOne //Muitos pra um
+	@JsonIgnoreProperties("postagem") // Não cria efeito cascata
+	private Tema tema;
 	
 	public long getId() {
 		return id;
@@ -55,7 +62,11 @@ public class Postagem {
 	public void setData(Date data) {
 		this.data = data;
 	}
+	public Tema getTema() {
+		return tema;
+	}
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
 	
-	
-
 }
