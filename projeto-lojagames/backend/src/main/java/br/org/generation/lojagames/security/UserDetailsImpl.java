@@ -1,4 +1,4 @@
-package br.org.generation.blogpessoal.seguranca;
+package br.org.generation.lojagames.security;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.org.generation.blogpessoal.model.Usuario;
+import br.org.generation.lojagames.model.Usuario;
 
 
 public class UserDetailsImpl implements UserDetails {
@@ -16,14 +16,29 @@ public class UserDetailsImpl implements UserDetails {
 	private String password;
 	private List<GrantedAuthority> authorities;
 
+	/**
+	 * Método construtor com parâmetros 
+	 * 
+	 * Observe que este método Construtor recebe um objeto Usuario e
+	 * recupera os dados necessários através dos respectivos métodos Get
+	 */
+
 	public UserDetailsImpl(Usuario usuario) {
 		this.userName = usuario.getUsuario();
 		this.password = usuario.getSenha();
 	}
 
+	/**
+	 * Método construtor sem parâmetros 
+	 */
 
 	public UserDetailsImpl() {	}
 
+	/**
+	 *  Sobrecarrega (@Override) o método que retorna as Autorizações
+	 *  da conta do usuário. Nesta implementação, não há nenhuma autorização
+	 *  negada
+	 */
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -41,26 +56,41 @@ public class UserDetailsImpl implements UserDetails {
 		return userName;
 	}
 
+	/**
+	 *  Sobrecarrega (@Override) o método que Indica se a conta do usuário 
+	 *  expirou.
+	 */
 
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
 
-
+	/**
+	 *  Sobrecarrega (@Override) o método que Indica se o usuário 
+	 *  está bloqueado ou desbloqueado.
+	 */
 
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
 
-
+	/**
+	 *  Sobrecarrega (@Override) o método que indica se as 
+	 *  credenciais do usuário (senha) expiraram.  
+	 */
 	
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
+	/**
+	 *  Sobrecarrega (@Override) o método que Indica se o usuário 
+	 *  está habilitado ou desabilitado.
+	 *  Se mudar para false nenhum usuário conseguirá logar.
+	 */
 
 	@Override
 	public boolean isEnabled() {
