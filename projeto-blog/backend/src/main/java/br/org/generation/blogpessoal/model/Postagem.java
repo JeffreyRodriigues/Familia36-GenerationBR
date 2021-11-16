@@ -41,6 +41,17 @@ public class Postagem {
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
+	
+	
+
+	public Postagem(long id, String titulo, String texto) {
+		this.id = id;
+		this.titulo = titulo;
+		this.texto = texto;
+	}
+	
+	public Postagem() {
+	}
 
 	public long getId() {
 		return id;
